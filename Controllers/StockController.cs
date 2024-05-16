@@ -27,7 +27,7 @@ namespace api.Controllers
         {
             var stocks = await _stockrepo.GetAllAsync(query);
             var stockDto=stocks.Select(s=>s.ToStockDto());
-            return Ok(stocks);
+            return Ok(stockDto);
         }
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
